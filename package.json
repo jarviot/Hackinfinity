@@ -1,0 +1,50 @@
+{
+  "name": "Dotmole",
+  "version": "1.1.0",
+  "description": "Next generation AI Cloud Security System to detect any movement with complete automation.",
+  "main": "electron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder",
+    "pack": "electron-builder --dir",
+    "start": "electron .",
+    "package": "npm run -s package-python && npm run -s package-electron && npm run -s package-cleanup",
+    "package-python": "pyinstaller -w -F --add-data web_app/templates;templates --add-data web_app/static;static web_app/run_app.py --distpath dist-python",
+    "package-electron": "electron-builder",
+    "package-cleanup": "rm -rf build && rm -rf run_app.spec && rm -rf dist-python"
+  },
+  "build": {
+    "appId": "com.electron-flask.my-app",
+    "productName": "Dotmole",
+    "asar": false,
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "linux": {
+      "category": "public.app-category.utilities",
+      "target": ["AppImage", "deb"]
+    },
+    "files": [
+      "electron.js",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "dist-python/",
+        "to": "app/dist-python",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
+  "author": "Dotmole Inc.",
+  "license": "ISC",
+  "dependencies": {
+    "ps-tree": "^1.2.0"
+  },
+  "devDependencies": {
+    "electron": "^6.0.10",
+    "electron-builder": "^21.2.0"
+  }
+}
