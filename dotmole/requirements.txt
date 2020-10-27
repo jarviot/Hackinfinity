@@ -8,7 +8,7 @@ bleach==1.5.0
 cffi==1.13.2
 Click==7.0
 coverage==5.0.1
-cryptography==2.8
+cryptography==3.2
 cycler==0.10.0
 fabric==2.5.0
 Flask==1.1.1
