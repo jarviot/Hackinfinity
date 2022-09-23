@@ -37,7 +37,7 @@ opencv-contrib-python==4.1.2.30
 opencv-python==4.1.2.30
 paramiko==2.7.1
 Pillow==7.0.0
-protobuf==3.11.2
+protobuf==3.18.3
 pycodestyle==2.5.0
 pycparser==2.19
 PyInstaller==3.5
